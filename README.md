@@ -49,7 +49,7 @@ A UI automation project built with Selenium WebDriver, JavaScript, and Chai to v
 | DB_CART_007 | Add Product to Cart | Add Sony vaio i5 from the Laptops category to the cart | Product is added and the alert is accepted | Passed |
 | DB_CART_008 | Cart Verification | Compare the product name in the cart with the expected product | Cart shows "Sony vaio i5" | Passed |
 
-Detailed steps, test data, and results are available in `Demoblaze_Test_Cases.xlsx`.
+Detailed steps, test data, and results are available in `[Demoblaze_Test_Cases.xlsx](https://docs.google.com/spreadsheets/d/1MfDKdPN6qptyHMoxFe9cpz783CbIps-pNr4gAqkmGXc/edit?usp=sharing)`.
 
 ## Test Execution Summary
 
