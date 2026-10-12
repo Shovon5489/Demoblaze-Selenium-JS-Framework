@@ -6,25 +6,25 @@ const driver = new Builder().forBrowser(Browser.CHROME).build();
 const expectedText = "Sony vaio i5";
 
 async function runner() {
-  // Browser-e homepage open kore product load howar jonno wait kori.
+  // Open the homepage in the browser and wait for the products to load.
   await driver.get("https://demoblaze.com/");
   await driver.manage().window().maximize();
   await driver.sleep(3000);
 
-  // API response theke product title-er array toyri kori.
+  // Create an array of product titles from the API response.
   const apiResponse = await getProducts();
   const apiProductTitles = apiResponse.Items.map((product) => product.title.trim());
 
-  // XPath diye homepage-er DOM theke product title collect kori.
+  // Collect product titles from the homepage DOM using XPath.
   const productLocator = By.xpath('//h4/a[contains(@href,"prod")]');
   const products = await driver.findElements(productLocator);
   const frontendProductTitles = await Promise.all(products.map((product) => product.getText()));
 
-  // API o frontend-er title ebong order eki kina Chai diye verify kori.
+  //Verify using Chai that the API and frontend product titles and their order are identical.
   expect(frontendProductTitles).to.deep.equal(apiProductTitles);
   console.log("API and frontend product titles match.");
 
-  // Protiti API title-er jonno dynamic XPath diye frontend-e visibility check kori.
+  // Check the visibility of each product on the frontend using dynamic XPath based on API titles.
   for (const title of apiProductTitles) {
     const productName = title;
     const productLocator = By.xpath(
@@ -39,7 +39,7 @@ async function runner() {
     }
   }
 
-  // API product title-er CSS text color expected color-er sathe check kori.
+  //Compare the CSS text color of each API product title with the expected color.
   const expectedColor = "#0275d8";
   for (const title of apiProductTitles) {
     const productName = title;
@@ -68,7 +68,7 @@ async function runner() {
     }
   }
 
-  // Home button chepe dhore rakhar somoy CSS text color check kori.
+  // Check the CSS text color of the Home button while holding it down.
   const expectedHomeColorBeforePress = "#FFFFFF";
   const expectedHomeColorWhilePressed = "#00aaff";
   const homeButtonLocator = By.xpath("//a[@class='nav-link' and @href='index.html']");
@@ -120,8 +120,8 @@ async function runner() {
    await driver.sleep(3000);
    const actualProuctText = await driver.findElement(By.xpath("//tr[@class='success']/td[2]")).getText();
    expect(expectedText).to.eql(actualProuctText);
-   //Test shesh hole Chrome browser bondho kori.
+   // Close the Chrome browser after the test is completed.
   await driver.quit();
 }
-// Async test workflow start kori.
+//Start the asynchronous test workflow.
 runner();
