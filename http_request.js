@@ -1,10 +1,10 @@
 import axios from "axios";
 
-// Demoblaze API endpoint, jar theke product data ana hoy.
+// Demoblaze API endpoint from which product data is retrieved.
 const apiUrl = "https://api.demoblaze.com/entries";
 
 export async function getProducts() {
-	// GET request-er response body caller-ke return kore.
+	// Returns the response body of the GET request to the caller.
 	const response = await axios.get(apiUrl);
 	return response.data;
 }
