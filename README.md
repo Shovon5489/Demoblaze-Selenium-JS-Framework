@@ -63,10 +63,10 @@ Detailed steps, test data, and results are available in `Demoblaze_Test_Cases.xl
 
 ## Project Structure
 
-├── test.js                    # Selenium test flow and Chai assertions
-├── http_request.js            # Axios helper that fetches products from the Demoblaze API
-├── utils.js                   # [one line: what this helper does]
-├── Demoblaze_Test_Cases.xlsx  # Test case sheet
+├── test.js                     # Selenium test flow and Chai assertions
+├── http_request.js             # Axios helper that fetches products from the Demoblaze API
+├── utils.js                    # [one line: what this helper does]
+├── Demoblaze_Test_Cases.xlsx   # Test case sheet
 └── package.json
 
 ## How to Run
